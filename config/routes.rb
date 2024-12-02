@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
+
+  # Routes pour les utilisateurs (visiteurs et locataires/propriétaires)
+  # devise_for :users, controllers: { registrations: 'users/registrations' }
+
+
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -9,4 +14,25 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+
+  resources :stars [:index, :show, :new, :create] do
+    resources :reservations, only: [:new, :create]
+  end
+
+  resources :reservations, only: [] do
+    member do
+      patch :custom_accept
+      patch :custom_reject
+    end
+
+  get '/dashboard', to: 'dashboard#custom_dashboard', as: :dashboard
+
+
+  # Routes pour les favoris
+  # resources :favorites, only: [:index, :create, :destroy]
+
+  # Page de contacts, merci, etc.
+  # get '/contact', to: 'pages#contact', as: :contact
+  # get '/thanks', to: 'pages#thanks', as: :thanks
+
 end
