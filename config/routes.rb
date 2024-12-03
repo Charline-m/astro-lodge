@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: {
+  registrations: 'users/registrations',
+  sessions: 'users/sessions',
+  passwords: 'users/passwords',
+  confirmations: 'users/confirmations'
+}
+
 
   # Routes pour les utilisateurs (visiteurs et locataires/propriétaires)
   # devise_for :users, controllers: { registrations: 'users/registrations' }
@@ -15,7 +21,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
-  resources :stars [:index, :show, :new, :create] do
+  resources :stars, only: [:index, :show, :new, :create] do
     resources :reservations, only: [:new, :create]
   end
 
@@ -24,7 +30,7 @@ Rails.application.routes.draw do
       patch :custom_accept
       patch :custom_reject
     end
-
+  end
   get '/dashboard', to: 'dashboard#custom_dashboard', as: :dashboard
 
 
