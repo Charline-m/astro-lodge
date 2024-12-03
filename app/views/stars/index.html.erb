@@ -9,9 +9,9 @@
           <div class="card-body">
             <h1 class="card-title"><%= star.name %></h1>
             <p class="card-text">
-              type: <%= star.type %>
+              Catégorie: <%= star.category %>
             </p>
-              <%= link_to "Plus de détails", star_path, class: "btn btn-primary" %>
+              <%= link_to "Plus de détails", star_path(star), class: "btn btn-primary" %>
           </div>
         </div>
     </div>

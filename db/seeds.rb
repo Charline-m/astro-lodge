@@ -7,6 +7,15 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+Star.destroy_all
+User.destroy_all
+
+users = [
+  User.create!(name: "bob", email: "user1@test.com", password: "123456"),
+  User.create!(name: "paul", email: "user2@test.com", password: "123456")
+]
+
 stars = [
   { name: "Solaria", category: "Etoile", description: "Source d'énergie infinie, idéale pour alimenter de vastes colonies humaines.\n\nBienfait pour l'humain : Fournit une énergie propre et durable.", price: 500 },
   { name: "Orionis", category: "Etoile", description: "Étoile aux capacités de régénération des tissus humains.\n\nBienfait pour l'humain : Accélère la guérison des blessures graves.", price: 800 },
@@ -32,5 +41,7 @@ stars = [
 
 # Create stars
 stars.each do |star|
-  Star.create!(star)
+  newstar = Star.new(star)
+  newstar.user = users.sample
+  newstar.save!
 end
