@@ -23,7 +23,7 @@ class StarsController < ApplicationController
   private
 
   def star_params
-    params.require(:star).permit(:name, :description, :type, :price)
+    params.require(:star).permit(:name, :description, :category, :price)
   end
 
 
