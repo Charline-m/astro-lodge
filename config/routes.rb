@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'stars/index'
+  get 'stars/show'
+  get 'stars/new'
+  get 'stars/create'
   devise_for :users, controllers: {
   registrations: 'users/registrations',
   sessions: 'users/sessions',
