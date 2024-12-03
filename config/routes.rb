@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'dashboard/custom_dashboard'
 
   devise_for :users
 
