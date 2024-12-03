@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   # Routes pour les utilisateurs (visiteurs et locataires/propriétaires)
   # devise_for :users, controllers: { registrations: 'users/registrations' }
 
-
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -26,7 +25,6 @@ Rails.application.routes.draw do
     end
 
   get '/dashboard', to: 'dashboard#custom_dashboard', as: :dashboard
-
 
   # Routes pour les favoris
   # resources :favorites, only: [:index, :create, :destroy]
