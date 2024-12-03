@@ -2,7 +2,7 @@
 <h1>Créer une nouvelle étoile</h1>
 
 <%= simple_form_for @star, url: stars_path do |f| %>
-  <%= f.input :type, collection: ["Astéroïde", "Comète", "Etoile", "Planète", "Satellite", "Trou noir"], prompt: "Select a category" %>
+  <%= f.input :category, collection: ["Astéroïde", "Comète", "Etoile", "Planète", "Satellite", "Trou noir"], prompt: "Select a category" %>
   <%= f.input :name, label: "Nom de l'étoile" %>
 
   <div class="form-group">
