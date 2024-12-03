@@ -1,19 +1,9 @@
 Rails.application.routes.draw do
-  get 'stars/index'
-  get 'stars/show'
-  get 'stars/new'
-  get 'stars/create'
-  devise_for :users, controllers: {
-  registrations: 'users/registrations',
-  sessions: 'users/sessions',
-  passwords: 'users/passwords',
-  confirmations: 'users/confirmations'
-}
 
+  devise_for :users
 
   # Routes pour les utilisateurs (visiteurs et locataires/propriétaires)
   # devise_for :users, controllers: { registrations: 'users/registrations' }
-
 
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
