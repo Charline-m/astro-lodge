@@ -1,0 +1,10 @@
+
+<h1>Créer une nouvelle étoile</h1>
+
+<%= simple_form_for @star, url: stars_path do |f| %>
+  <%= f.input :type, collection: ["Astéroïde", "Comète", "Etoile", "Planète", "Satellite", "Trou noir"], prompt: "Select a category" %>
+  <%= f.input :name, label: "Nom de l'étoile" %>
+  <%= f.input :description, label: "Description" %>
+  <%= f.input :price, label: "Prix par nuit en €" %>
+  <%= f.button :submit, "Créer", class: "btn btn-primary" %>
+<% end %>
