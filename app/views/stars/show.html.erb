@@ -1,2 +1,7 @@
-<h1>Stars#show</h1>
-<p>Find me in app/views/stars/show.html.erb</p>
+<h2><%= @star.name %></h2>
+
+<p><%= @star.category %></p>
+<p><%= @star.description %></p>
+<p><%= @star.price %></p>
+
+<%= link_to "Revenir aux astres", stars_path, class: "btn btn-primary" %>

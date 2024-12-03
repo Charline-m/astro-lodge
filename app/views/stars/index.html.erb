@@ -1,2 +1,19 @@
-<h1>Stars#index</h1>
-<p>Find me in app/views/stars/index.html.erb</p>
+<h1>Tous les astres</h1>
+<%= link_to "Ajouter un nouvel astre", new_star_path, class: "btn btn-primary" %>
+
+
+<div class="row">
+  <% @stars.each do |star| %>
+    <div class="col-md-4 mb-3">
+        <div class="card">
+          <div class="card-body">
+            <h1 class="card-title"><%= star.name %></h1>
+            <p class="card-text">
+              Catégorie: <%= star.category %>
+            </p>
+              <%= link_to "Plus de détails", star_path(star), class: "btn btn-primary" %>
+          </div>
+        </div>
+    </div>
+  <% end %>
+</div>
