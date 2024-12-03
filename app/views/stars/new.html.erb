@@ -4,7 +4,12 @@
 <%= simple_form_for @star, url: stars_path do |f| %>
   <%= f.input :type, collection: ["Astéroïde", "Comète", "Etoile", "Planète", "Satellite", "Trou noir"], prompt: "Select a category" %>
   <%= f.input :name, label: "Nom de l'étoile" %>
-  <%= f.input :description, label: "Description" %>
+
+  <div class="form-group">
+    <%= f.label :description, "Description" %>
+    <%= f.text_area :description, class: "form-control" %>
+  </div>
+
   <%= f.input :price, label: "Prix par nuit en €" %>
   <%= f.button :submit, "Créer", class: "btn btn-primary" %>
 <% end %>
