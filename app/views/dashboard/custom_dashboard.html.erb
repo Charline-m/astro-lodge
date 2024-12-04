@@ -1,2 +1,43 @@
-<h1>Dashboard#custom_dashboard</h1>
-<p>Find me in app/views/dashboard/custom_dashboard.html.erb</p>
+<div class="dashboard-container">
+  <!-- Section utilisateur -->
+  <div class="user-profile">
+    <div class="profile-picture"></div>
+    <h2><%= current_user.name %></h2>
+    <p>Nombre d'étoiles : <%= current_user.stars.count %></p>
+  </div>
+
+  <!-- Section centrale (biens et réservations côte à côte) -->
+  <div class="dashboard-panels">
+
+    <!-- Section des biens (Mes Étoiles) -->
+    <div class="user-properties panel">
+      <h3>Mes Lodges Intersellaires</h3>
+      <div class="cards-container">
+        <% current_user.stars.limit(3).each do |star| %>
+          <div class="card">
+            <!-- Remplacer l'image par un fond bleu avec le texte "Image" -->
+            <div style="background-color: lightblue; width: 100%; height: 200px; display: flex; align-items: center; justify-content: center; color: white; font-size: 20px;">
+              Image
+            </div>
+            <h4><%= star.name %></h4>
+            <p><%= star.description %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <!-- Section des réservations (Mes Réservations) -->
+    <div class="user-reservations panel">
+      <h3>Mes Réservations</h3>
+      <div class="cards-container">
+        <% current_user.reservations.limit(3).each do |reservation| %>
+          <div class="card">
+            <h4><%= reservation.star.name %></h4>
+            <p>Du : <%= reservation.start_date %> au <%= reservation.end_date %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+</div>
