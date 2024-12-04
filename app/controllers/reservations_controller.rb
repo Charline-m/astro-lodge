@@ -1,7 +1,5 @@
 class ReservationsController < ApplicationController
 
-
-
   def new
     @reservation = Reservation.new
     @star = Star.find(params[:star_id])

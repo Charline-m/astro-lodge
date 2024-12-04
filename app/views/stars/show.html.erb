@@ -1,8 +1,13 @@
+
 <div class="container">
   <div class="row">
     <div class="col">
 
-        <h1><%= @star.name %></h1>
+<%= render "devise/shared/navbar" %>
+<h2><%= @star.name %></h2>
+
+
+
 
         <p><%= @star.category %></p>
         <p>Catégorie : <%= @star.description %></p>
@@ -31,3 +36,6 @@
     </div>
   </div>
 </div>
+
+<%= render "devise/shared/footer" %>
+

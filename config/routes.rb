@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'dashboard/custom_dashboard'
 
   devise_for :users
 
@@ -26,7 +27,6 @@ Rails.application.routes.draw do
     end
   end
   get '/dashboard', to: 'dashboard#custom_dashboard', as: :dashboard
-
 
   # Routes pour les favoris
   # resources :favorites, only: [:index, :create, :destroy]
