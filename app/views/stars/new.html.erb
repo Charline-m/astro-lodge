@@ -13,6 +13,9 @@
           </div>
 
           <%= f.input :price, label: "Prix par nuit en €" %>
+
+          <%= f.input :photo, as: :file %>
+
           <%= f.button :submit, "Créer", class: "btn btn-primary" %>
         <% end %>
     </div>
