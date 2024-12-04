@@ -1,0 +1,39 @@
+body {
+  background: linear-gradient(135deg, $background-page-gradiant1, $background-page-gradiant2);
+  color: $police-color-body;
+  font-family: 'Arial', sans-serif;
+}
+.logo-container {
+  display: flex;
+  justify-content: center;
+}
+.logo-container img {
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+}
+.cosmic-hero {
+  background: rgba(10, 25, 47, 0.7);
+  border-radius: 15px;
+  padding: 3rem;
+  margin-top: 2rem;
+}
+.cosmic-card {
+  background: $background-cosmic-card;
+  border: 1px solid $border-cosmic-card;
+  color: $police-color-card;
+  transition: transform 0.3s ease;
+}
+.cosmic-card:hover {
+  transform: scale(1.05);
+}
+.btn-cosmic {
+  background-color: $background-cosmic-btn;
+  color: $background-page-gradiant1;
+  border: none;
+  transition: all 0.3s ease;
+}
+.btn-cosmic:hover {
+  background-color: $background-color-btn-over;
+  color: $background-cosmic-btn;
+}
