@@ -1,6 +1,5 @@
 class StarsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
-  has_one_attached :image
 
   def index
     @stars = Star.all
