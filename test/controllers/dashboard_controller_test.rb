@@ -1,7 +1,8 @@
 require "test_helper"
 
 class DashboardControllerTest < ActionDispatch::IntegrationTest
-  # test "the truth" do
-  #   assert true
-  # end
+  test "should get custom_dashboard" do
+    get dashboard_custom_dashboard_url
+    assert_response :success
+  end
 end

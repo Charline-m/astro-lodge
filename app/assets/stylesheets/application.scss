@@ -10,5 +10,10 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+// Custom Pages
+@import "dashboard/dashboard";
+
+// Pages
 @import "components/home";
-@import "components/footer"
+@import "components/footer";
