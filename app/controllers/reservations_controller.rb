@@ -6,12 +6,19 @@ class ReservationsController < ApplicationController
   end
 
   def create
+    @star = Star.find(params[:star_id])
+    @reservation = @star.reservations.new(reservations_params)
+    @reservation.user = current_user
 
-    @reservation = Reservation.new(reservations_params)
-      if @reservation.save
-      redirect_to star_path(@reservation.star)
+      if @star.reservations.where("start_date < ? AND end_date > ?", @reservation.end_date, @reservation.start_date).exists?
+        flash[:alert] = "L'astre est déjà réservé pour ces dates."
+        redirect_to star_path(@star)
+      elsif @reservation.save
+        flash[:notice] = "Réservation confirmée !"
+        redirect_to star_path(@star)
       else
-        render :new, status: :unprocessable_entity
+        flash[:alert] = "Erreur dans la réservation."
+        render "stars/show"
       end
   end
 
@@ -24,6 +31,6 @@ class ReservationsController < ApplicationController
   private
 
   def reservations_params
-    params.require(:reservation).permit(:start_date, :end_date :star_id, :user_id)
+    params.require(:reservation).permit(:start_date, :end_date, :star_id, :user_id)
   end
 end
