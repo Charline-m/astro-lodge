@@ -1,7 +1,32 @@
-<h2><%= @star.name %></h2>
+<div class="container">
+  <div class="row">
+    <div class="col">
 
-<p><%= @star.category %></p>
-<p><%= @star.description %></p>
-<p><%= @star.price %></p>
+        <h2><%= @star.name %></h2>
 
-<%= link_to "Revenir aux astres", stars_path, class: "btn btn-primary" %>
+        <p><%= @star.category %></p>
+        <p><%= @star.description %></p>
+        <p><%= @star.price %></p>
+
+        <%= link_to "Revenir aux astres", stars_path, class: "btn btn-primary" %>
+        <p></p>
+        <h3> Reservez votre séjour </h3>
+        <p></p>
+        <%= form_with model: [@star, Reservation.new], local: true do |f| %>
+          <div class="form-group">
+            <%= f.label :start_date, "Date de début" %>
+            <%= f.date_field :start_date, class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :end_date, "Date de fin" %>
+            <%= f.date_field :end_date, class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <p>Prix par nuit : <%= @star.price %>€</p>
+            <p>Total : <span id="total-price">0</span>€</p>
+          </div>
+          <%= f.submit "Réserver", class: "btn btn-primary" %>
+        <% end %>
+    </div>
+  </div>
+</div>
