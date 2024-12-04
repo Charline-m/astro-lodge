@@ -15,7 +15,7 @@ class ReservationsController < ApplicationController
         redirect_to star_path(@star)
       elsif @reservation.save
         flash[:notice] = "Réservation confirmée !"
-        redirect_to star_path(@star)
+        redirect_to dashboard_path
       else
         flash[:alert] = "Erreur dans la réservation."
         render "stars/show"
