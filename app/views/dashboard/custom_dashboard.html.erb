@@ -1,23 +1,48 @@
+<!-- NavBar -->
 <%= render "devise/shared/navbar" %>
+
+<!--  -->
 <div class="dashboard-container">
+
+
   <!-- Section utilisateur -->
   <div class="user-profile">
+
+    <!-- Info Profil -->
     <div class="profile-picture"></div>
     <h2><%= current_user.name %></h2>
-    <p>Nombre d'étoiles : <%= current_user.stars.count %></p>
+    <p>Nombre de Lodge : <%= current_user.stars.count %></p>
+
+    <!-- Résa Accept/Reject-->
+    <div class="reservation-requests">
+      <h3>Demandes de réservation</h3>
+      <% @stars.each do |star| %>
+        <% star.reservations.where(status: nil).each do |reservation| %>
+          <div class="reservation-card">
+            <h4><%= reservation.user.name %> demande une réservation pour <%= star.name %></h4>
+            <p>Dates : <%= reservation.start_date %> au <%= reservation.end_date %></p>
+            <p>Prix total : <%= reservation.total_price %> €</p>
+            <%= link_to "Accepter", custom_accept_reservation_path(reservation), data:{turbo_method: :patch}, class: "btn btn-success" %>
+            <%= link_to "Rejeter", custom_reject_reservation_path(reservation), data:{turbo_method: :patch}, class: "btn btn-danger" %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+
+  <!-- Section utilisateur -->
   </div>
 
-  <!-- Section centrale (biens et réservations côte à côte) -->
-  <div class="dashboard-panels">
+  <!-- Section utilisateur -->
+  <div class=" dashboard-panels">
 
-    <!-- Section des biens (Mes Étoiles) -->
+    <!-- Mes Étoiles -->
     <div class="user-properties panel">
       <h3>Mes Lodges Intersellaires</h3>
       <div class="cards-container">
-        <% current_user.stars.limit(3).each do |star| %>
+        <% current_user.stars.limit(2).each do |star| %>
           <div class="card">
             <!-- Remplacer l'image par un fond bleu avec le texte "Image" -->
-            <div style="background-color: lightblue; width: 100%; height: 200px; display: flex; align-items: center; justify-content: center; color: white; font-size: 20px;">
+            <div class="card-image">
               Image
             </div>
             <h4><%= star.name %></h4>
@@ -27,11 +52,12 @@
       </div>
     </div>
 
-    <!-- Section des réservations (Mes Réservations) -->
+
+    <!-- Mes Réservations -->
     <div class="user-reservations panel">
       <h3>Mes Réservations</h3>
       <div class="cards-container">
-        <% current_user.reservations.limit(3).each do |reservation| %>
+        <% current_user.reservations.limit(2).each do |reservation| %>
           <div class="card">
             <h4><%= reservation.star.name %></h4>
             <p>Du : <%= reservation.start_date %> au <%= reservation.end_date %></p>
@@ -41,5 +67,11 @@
     </div>
 
   </div>
+
+
+
 </div>
+
+
+
 <%= render "devise/shared/footer" %>
