@@ -1,39 +1,78 @@
+// Variables existantes
+$background-page-gradiant1: #0a192f;
+$background-page-gradiant2: #020c1b;
+$police-color-body: #e6f1ff;
+$background-cosmic-card: rgba(16, 34, 64, 0.8);
+$border-cosmic-card: #172a45;
+$police-color-card: #8892b0;
+$background-cosmic-btn: #64ffda;
+$police-color-btn: #0a192f;
+$background-color-btn-over: #8892b0;
+
+// Styles existants
 body {
   background: linear-gradient(135deg, $background-page-gradiant1, $background-page-gradiant2);
   color: $police-color-body;
   font-family: 'Arial', sans-serif;
 }
+
 .logo-container {
   display: flex;
   justify-content: center;
+
+  img {
+    max-width: 300px;
+    width: 100%;
+    height: auto;
+  }
 }
-.logo-container img {
-  max-width: 300px;
-  width: 100%;
-  height: auto;
-}
+
 .cosmic-hero {
   background: rgba(10, 25, 47, 0.7);
   border-radius: 15px;
   padding: 3rem;
-  margin-top: 2rem;
 }
+
 .cosmic-card {
   background: $background-cosmic-card;
   border: 1px solid $border-cosmic-card;
   color: $police-color-card;
   transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+  }
 }
-.cosmic-card:hover {
-  transform: scale(1.05);
-}
+
 .btn-cosmic {
   background-color: $background-cosmic-btn;
   color: $background-page-gradiant1;
   border: none;
   transition: all 0.3s ease;
+
+  &:hover {
+    background-color: $background-color-btn-over;
+    color: $background-cosmic-btn;
+  }
 }
-.btn-cosmic:hover {
-  background-color: $background-color-btn-over;
-  color: $background-cosmic-btn;
+
+// Nouveaux styles pour la version condensée
+.text-info {
+  color: $background-cosmic-btn !important;
+}
+
+// Classes utilitaires supplémentaires si nécessaire
+.py-small {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.small-card {
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.icon-small {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
 }
