@@ -4,4 +4,5 @@ class DashboardController < ApplicationController
     @stars = current_user.stars
     @reservations = current_user.reservations
   end
+
 end

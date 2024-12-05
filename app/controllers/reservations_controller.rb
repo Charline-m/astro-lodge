@@ -1,4 +1,5 @@
 class ReservationsController < ApplicationController
+  before_action :set_reservation, only: %i[custom_accept custom_reject]
 
   def new
     @reservation = Reservation.new
@@ -28,9 +29,24 @@ class ReservationsController < ApplicationController
     redirect_to star_path(@reservation.star), status: :see_other
   end
 
+  def custom_accept
+    @reservation.update(status: 'accepted')
+    redirect_to dashboard_path, notice: "La réservation a été acceptée."
+  end
+
+  def custom_reject
+    @reservation.update(status: 'rejected')
+    redirect_to dashboard_path, notice: "La réservation a été rejetée."
+  end
+
   private
 
   def reservations_params
     params.require(:reservation).permit(:start_date, :end_date, :star_id, :user_id)
   end
+
+  def set_reservation
+    @reservation = Reservation.find(params[:id])
+  end
+
 end
