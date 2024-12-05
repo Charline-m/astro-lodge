@@ -49,7 +49,7 @@ class ReservationsController < ApplicationController
   end
 
   def custom_reject
-    @reservation.update(status: 'rejected')
+    @reservation.destroy
     redirect_to dashboard_path, notice: "La réservation a été rejetée."
   end
 

@@ -4,7 +4,7 @@
   padding: 20px;
 
   .user-profile {
-    width: 30%;
+    width: 30vw;
     text-align: center;
     background-color: #0c1b33;
     color: #fff;
@@ -20,7 +20,7 @@
     }
 
     .reservation-requests {
-      
+
     }
 
   }
@@ -37,6 +37,7 @@
       border-radius: 10px;
       padding: 20px;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      width: 65vw;
 
       h3 {
         color: #0c1b33;
@@ -45,7 +46,9 @@
 
       .cards-container {
         display: flex; /* Alignement horizontal */
+        overflow-x: scroll;
         gap: 20px; /* Espace entre les cartes */
+        padding-bottom: 1em;
 
         .card {
           border:none;
@@ -53,6 +56,8 @@
           padding: 10px;
           box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
           width: 150px;
+          flex: 0 0 auto;
+
 
           .card-image {
             background-color: lightblue;
