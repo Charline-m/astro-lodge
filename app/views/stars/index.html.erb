@@ -5,7 +5,7 @@
 
 <div class="row">
   <% @stars.each do |star| %>
-   <%= render "devise/shared/star_card"%>
+    <%= render partial: "devise/shared/star_card", locals: { star: star } %>
   <% end %>
 </div>
 
