@@ -3,11 +3,11 @@
 <div class="cont">
   <div class="row">
     <div class="col">
-      <h1>Créer une nouvelle étoile</h1>
+      <h1>Créer un nouvel astre</h1>
 
           <%= simple_form_for @star, url: stars_path do |f| %>
-          <%= f.input :category, collection: ["Astéroïde", "Comète", "Etoile", "Planète", "Satellite", "Trou noir"], prompt: "Select a category" %>
-          <%= f.input :name, label: "Nom de l'étoile" %>
+          <%= f.input :category, label: "Catégorie", collection: ["Astéroïde", "Comète", "Etoile", "Planète", "Satellite", "Trou noir"], prompt: "Selectionner une catégorie" %>
+          <%= f.input :name, label: "Nom de votre astre" %>
 
           <div class="form-group">
             <%= f.label :description, "Description" %>
@@ -25,4 +25,3 @@
   </div>
 </div>
 <%= render "devise/shared/footer" %>
-
