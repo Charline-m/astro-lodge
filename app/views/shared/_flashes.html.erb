@@ -1,0 +1,16 @@
+<% if notice %>
+  <%# /<div class="notice_container" data-controller="notice" data-action="click->notice#close" data-notice-target="closeNoticeButton"> %>
+    <div class="notice" role="notification utilisateur" style="border:2px solid red" >
+     <p style="color:red"> <%= notice %> </p>
+    </div>
+    <%# <div class="blackout"></div> %>
+  <%# </div> %>
+<% end %>
+<% if alert %>
+  <%# <div class="alert_container" data-controller="alert" data-action="click->alert#close" data-alert-target="closeAlertButton"> %>
+    <div class="not_a_bs_class_alert" role="alerte utilisateur">
+      <%= alert %>
+    </div>
+    <%# <div class="blackout"></div> %>
+  <%# </div> %>
+<% end %>
