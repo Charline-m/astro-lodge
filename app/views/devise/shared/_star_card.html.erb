@@ -1,0 +1,16 @@
+<div class="col-md-4 mb-3">
+  <div class="card">
+    <div class="card-body">
+      <% if star.photo.attached? %>
+        <%= cl_image_tag star.photo.key, width: 200, height: 200, crop: :fill %>
+      <% else %>
+        <%= image_tag "default_image.jpg", width: 200, height: 200, alt: "Image par défaut" %>
+      <% end %>
+      <h1 class="card-title"><%= star.name %></h1>
+      <p class="card-text">
+        <%= star.category %>
+      </p>
+      <%= link_to "Plus de détails", star_path(star), class: "btn btn-primary" %>
+    </div>
+  </div>
+</div>

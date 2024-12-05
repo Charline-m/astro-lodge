@@ -15,7 +15,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 20px;
+  gap: 30px;
   margin: 50px 0;
 }
 
@@ -26,7 +26,7 @@
 
 .card {
   background-color: white;
-  border-radius: 10px;
+  border-radius: 50px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -50,4 +50,21 @@
   font-size: 16px;
   display: inline-block;
   transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.card-body {
+  padding: 15px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100px;
+}
+
+.card-body img {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 25px;
 }

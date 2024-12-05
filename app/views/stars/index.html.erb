@@ -5,17 +5,7 @@
 
 <div class="row">
   <% @stars.each do |star| %>
-    <div class="col-md-4 mb-3">
-        <div class="card">
-          <div class="card-body">
-            <h1 class="card-title"><%= star.name %></h1>
-            <p class="card-text">
-              Catégorie: <%= star.category %>
-            </p>
-              <%= link_to "Plus de détails", star_path(star), class: "btn btn-primary" %>
-          </div>
-        </div>
-    </div>
+    <%= render partial: "devise/shared/star_card", locals: { star: star } %>
   <% end %>
 </div>
 
