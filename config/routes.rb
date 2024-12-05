@@ -35,4 +35,5 @@ Rails.application.routes.draw do
   # get '/contact', to: 'pages#contact', as: :contact
   # get '/thanks', to: 'pages#thanks', as: :thanks
 
+  
 end
