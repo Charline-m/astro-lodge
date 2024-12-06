@@ -9,7 +9,9 @@
   <div class="user-profile">
 
     <!-- Info Profil -->
-    <div class="profile-picture"></div>
+    <div class="profile-picture">
+      <%= user_avatar(current_user) %>
+    </div>
     <h2><%= current_user.name %></h2>
     <p>Nombre de Lodge : <%= current_user.stars.count %></p>
 
