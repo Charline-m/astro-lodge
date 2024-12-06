@@ -1,7 +1,5 @@
 <div class="container">
   <h1>Tous les astres</h1>
-  <%= link_to "Ajouter un nouvel astre", new_star_path, class: "btn btn-primary" %>
-
 
   <div class="row">
     <% @stars.each do |star| %>
@@ -25,4 +23,5 @@
       </div>
     <% end %>
   </div>
+  <%= link_to "+", new_star_path, id: "custom-button-plus", class: "btn btn-primary" %>
 </div>
