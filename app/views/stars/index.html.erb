@@ -13,11 +13,11 @@
             <% else %>
               <%= image_tag "default_image.jpg", width: 200, height: 200, alt: "Image par défaut" %>
             <% end %>
-            <h1 class="card-title"><%= star.name %></h1>
+            <h1 class="card-title pt-3"><%= star.name %></h1>
             <p class="card-text">
               <%= star.category %>
             </p>
-            <%= link_to "Plus de détails", star_path(star), class: "btn btn-primary" %>
+            <%= link_to "Réserver", star_path(star), class: "btn btn-primary" %>
           </div>
         </div>
       </div>
