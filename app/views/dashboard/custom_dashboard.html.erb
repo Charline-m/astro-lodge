@@ -1,7 +1,3 @@
-<!-- NavBar -->
-<%= render "devise/shared/navbar" %>
-
-<!--  -->
 <div class="dashboard-container">
 
 
@@ -9,15 +5,17 @@
   <div class="user-profile">
 
     <!-- Info Profil -->
-    <div class="profile-picture"></div>
+    <div class="profile-picture">
+      <%= user_avatar(current_user) %>
+    </div>
     <h2><%= current_user.name %></h2>
     <p>Nombre de Lodge : <%= current_user.stars.count %></p>
 
-    <!-- Résa Accept/Reject-->
+    <!-- Résa Accept/Reject -->
     <div class="reservation-requests">
       <h3>Demandes de réservation</h3>
       <% @stars.each do |star| %>
-        <% star.reservations.where(status: nil).each do |reservation| %>
+        <% star.reservations.where(status: false).each do |reservation| %>
           <div class="reservation-card">
             <h4><%= reservation.user.name %> demande une réservation pour <%= star.name %></h4>
             <p>Dates : <%= reservation.start_date %> au <%= reservation.end_date %></p>
@@ -39,12 +37,14 @@
     <div class="user-properties panel">
       <h3>Mes Lodges Intersellaires</h3>
       <div class="cards-container">
-        <% current_user.stars.limit(2).each do |star| %>
+        <% current_user.stars.each do |star| %>
           <div class="card">
             <!-- Remplacer l'image par un fond bleu avec le texte "Image" -->
-            <div class="card-image">
-              Image
-            </div>
+            <% if star.image_url.present? %>
+              <%= image_tag star.image_url, class: "card-image" %>
+            <% else %>
+              <%= image_tag "default_image.jpg", alt: "Image par défaut", class: "card-image" %>
+            <% end %>
             <h4><%= star.name %></h4>
             <p><%= star.description %></p>
           </div>
@@ -57,7 +57,7 @@
     <div class="user-reservations panel">
       <h3>Mes Réservations</h3>
       <div class="cards-container">
-        <% current_user.reservations.limit(2).each do |reservation| %>
+        <% current_user.reservations.each do |reservation| %>
           <div class="card">
             <h4><%= reservation.star.name %></h4>
             <p>Du : <%= reservation.start_date %> au <%= reservation.end_date %></p>
@@ -67,11 +67,4 @@
     </div>
 
   </div>
-
-
-
 </div>
-
-
-
-<%= render "devise/shared/footer" %>

@@ -1,13 +1,26 @@
-<%= render "devise/shared/navbar" %>
-<h1>Tous les astres</h1>
-<%= link_to "Ajouter un nouvel astre", new_star_path, class: "btn btn-primary" %>
+<div class="container">
+  <h1>Tous les astres</h1>
+  <%= link_to "Ajouter un nouvel astre", new_star_path, class: "btn btn-primary" %>
 
 
-<div class="row">
-  <% @stars.each do |star| %>
-    <%= render partial: "devise/shared/star_card", locals: { star: star } %>
-  <% end %>
+  <div class="row">
+    <% @stars.each do |star| %>
+      <div class="col-md-4 mb-3">
+        <div class="card">
+          <div class="card-body">
+            <% if star.image_url.present? %>
+              <%= image_tag star.image_url, width: 200, height: 200, crop: :fill %>
+            <% else %>
+              <%= image_tag "default_image.jpg", width: 200, height: 200, alt: "Image par défaut" %>
+            <% end %>
+            <h1 class="card-title"><%= star.name %></h1>
+            <p class="card-text">
+              <%= star.category %>
+            </p>
+            <%= link_to "Plus de détails", star_path(star), class: "btn btn-primary" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
-
-
-<%= render "devise/shared/footer" %>

@@ -1,43 +1,41 @@
-<%= render "devise/shared/navbar" %>
+<div class="container">
+  <div class="form-container">
+    <div class="form-card">
+      <h1><i class="fas fa-rocket"></i>Créer un nouvel astre</h1>
 
-<div class="form-container">
-  <div class="form-card">
-    <h1><i class="fas fa-rocket"></i>Créer un nouvel astre</h1>
+      <%= simple_form_for @star, url: stars_path do |f| %>
+        <div class="form-group">
+          <%= f.input :category,
+                      label: "Catégorie <i class='fas fa-list-ul'></i>".html_safe,
+                      collection: ["Astéroïde", "Comète", "Etoile", "Planète", "Satellite", "Trou noir"],
+                      prompt: "Selectionner une catégorie" %>
+        </div>
 
-    <%= simple_form_for @star, url: stars_path do |f| %>
-      <div class="form-group">
-        <%= f.input :category,
-                    label: "Catégorie <i class='fas fa-list-ul'></i>".html_safe,
-                    collection: ["Astéroïde", "Comète", "Etoile", "Planète", "Satellite", "Trou noir"],
-                    prompt: "Selectionner une catégorie" %>
-      </div>
+        <div class="form-group">
+          <%= f.input :name,
+                      label: "Nom de votre astre <i class='fas fa-star'></i>".html_safe %>
+        </div>
 
-      <div class="form-group">
-        <%= f.input :name,
-                    label: "Nom de votre astre <i class='fas fa-star'></i>".html_safe %>
-      </div>
+        <div class="form-group">
+          <%= f.label :description, "<i class='fas fa-pen'></i> Description".html_safe %>
+          <%= f.text_area :description, class: "form-control", rows: 4 %>
+        </div>
 
-      <div class="form-group">
-        <%= f.label :description, "<i class='fas fa-pen'></i> Description".html_safe %>
-        <%= f.text_area :description, class: "form-control", rows: 4 %>
-      </div>
+        <div class="form-group">
+          <%= f.input :price,
+                      label: "Prix par nuit en <i class='fas fa-euro-sign'></i>".html_safe %>
+        </div>
 
-      <div class="form-group">
-        <%= f.input :price,
-                    label: "Prix par nuit en <i class='fas fa-euro-sign'></i>".html_safe %>
-      </div>
+        <div class="form-group">
+          <%= f.input :photo,
+                      as: :file,
+                      label: "Photo de l'astre <i class='fas fa-camera'></i>".html_safe %>
+        </div>
 
-      <div class="form-group">
-        <%= f.input :photo,
-                    as: :file,
-                    label: "Photo de l'astre <i class='fas fa-camera'></i>".html_safe %>
-      </div>
-
-      <button class="btn-cosmic">
-        <i class="fas fa-paper-plane"></i> Créer
-      </button>
-    <% end %>
+        <button class="btn-cosmic">
+          <i class="fas fa-paper-plane"></i> Créer
+        </button>
+      <% end %>
+    </div>
   </div>
 </div>
-
-<%= render "devise/shared/footer" %>
