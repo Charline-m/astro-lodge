@@ -13,6 +13,8 @@
   <body>
      <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
-    <%= yield %>
+        <%= render "devise/shared/navbar" %>
+        <%= yield %>
+        <%= render "devise/shared/footer" %>
   </body>
 </html>
