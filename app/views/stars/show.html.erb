@@ -1,4 +1,4 @@
-<%= render "devise/shared/navbar" %>
+
 <div class="form-container">
   <div class="form-card">
     <h1><i class="fas fa-rocket"></i>Détails de l'astre</h1>
@@ -8,7 +8,7 @@
 
       <% if @star.image_url.present? %>
           <div class="d-flex justify-content-center mb-3">
-            <%= image_tag star.image_url, width: 400, height: 300, crop: :fill, class: "rounded" %>
+            <%= image_tag @star.image_url, width: 400, height: 300, crop: :fill, class: "rounded" %>
             </div>
         <% else %>
         <div class="d-flex justify-content-center mb-3">
@@ -63,10 +63,3 @@
     </div>
   </div>
 </div>
-
-<%= render "devise/shared/footer" %>
-
-
-<button class="btn-cosmic">
-        <i class="fas fa-paper-plane"></i> Créer
-      </button>
