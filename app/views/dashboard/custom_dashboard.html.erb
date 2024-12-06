@@ -12,20 +12,22 @@
     <p>Nombre de Lodge : <%= current_user.stars.count %></p>
 
     <!-- Résa Accept/Reject -->
-    <div class="reservation-requests">
-      <h3>Demandes de réservation</h3>
-      <% @stars.each do |star| %>
-        <% star.reservations.where(status: false).each do |reservation| %>
-          <div class="reservation-card">
-            <h4><%= reservation.user.name %> demande une réservation pour <%= star.name %></h4>
-            <p>Dates : <%= reservation.start_date %> au <%= reservation.end_date %></p>
-            <p>Prix total : <%= reservation.total_price %> €</p>
-            <%= link_to "Accepter", custom_accept_reservation_path(reservation), data:{turbo_method: :patch}, class: "btn btn-success" %>
-            <%= link_to "Rejeter", custom_reject_reservation_path(reservation), data:{turbo_method: :patch}, class: "btn btn-danger" %>
-          </div>
+      <div class="reservation-requests">
+        <h3>Demandes de réservation</h3>
+        <% @stars.each do |star| %>
+          <% star.reservations.where(status: false).each do |reservation| %>
+            <div class="reservation-card">
+              <h4><%= reservation.user.name %> aimerait réserver <%= star.name %></h4>
+              <p><%= reservation.start_date.strftime("%d %B") %> - <%= reservation.end_date.strftime("%d %B %Y") %></p>
+              <p>Prix total : <%= reservation.total_price %> €</p>
+              <div class="buttons">
+                <%= link_to "Accepter", custom_accept_reservation_path(reservation), data: { turbo_method: :patch }, class: "btn btn-success" %>
+                <%= link_to "Rejeter", custom_reject_reservation_path(reservation), data: { turbo_method: :patch }, class: "btn btn-danger" %>
+              </div>
+            </div>
+          <% end %>
         <% end %>
-      <% end %>
-    </div>
+      </div>
 
   <!-- Section utilisateur -->
   </div>

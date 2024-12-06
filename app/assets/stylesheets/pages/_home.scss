@@ -1,1 +1,41 @@
 // Specific CSS for your home-page
+
+.container {
+  text-align: center; // Centre le contenu dans toute la page
+}
+
+h1 {
+  font-size: 3rem; // Augmente la taille du titre
+  font-weight: bold;
+  color: #a7d1ff; // Couleur principale
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); // Ajoute une ombre douce
+  text-align: center; // Centre le titre horizontalement
+  margin-bottom: 20px; // Ajoute de l'espacement en dessous
+  padding: 10px 20px; // Ajoute de l'espace autour du texte
+  border-radius: 8px; // Arrondit légèrement les coins du fond
+  display: inline-block; // Maintient la taille compacte autour du texte
+}
+
+#custom-button-plus {
+  display: flex; // Permet le centrage
+  justify-content: center; // Centre horizontalement
+  align-items: center; // Centre verticalement si nécessaire
+  margin: 40px auto; // Ajoute un espacementouleur du bouton
+  border-radius: 50%; // Rend le bouton rond
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); // Ombre pour un effet stylé
+}
+
+#custom-button-plus a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem; // Taille du texte "+"
+  font-weight: bold;
+  color: white; // Couleur du texte
+  text-decoration: none; // Supprime le soulignement
+}
+
+#custom-button-plus a:hover {
+  background-color: #0056b3; // Changement de couleur au survol
+  text-decoration: none;
+}

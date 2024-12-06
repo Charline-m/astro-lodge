@@ -1,0 +1,5 @@
+fr:
+  hello: "Bonjour monde"
+  date:
+    formats:
+      long: "%d %B %Y" # Format : 01 janvier 2024
