@@ -40,7 +40,9 @@
         <% current_user.stars.each do |star| %>
           <div class="card">
             <!-- Remplacer l'image par un fond bleu avec le texte "Image" -->
-            <% if star.image_url.present? %>
+            <% if star.photo.attached?%>
+              <%= cl_image_tag star.photo.key, class: "card-image" %>
+            <% elsif star.image_url.present? %>
               <%= image_tag star.image_url, class: "card-image" %>
             <% else %>
               <%= image_tag "default_image.jpg", alt: "Image par défaut", class: "card-image" %>

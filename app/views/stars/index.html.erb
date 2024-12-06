@@ -8,7 +8,9 @@
       <div class="col-md-4 mb-3">
         <div class="card">
           <div class="card-body">
-            <% if star.image_url.present? %>
+            <% if star.photo.attached?%>
+              <%= cl_image_tag star.photo.key, width: 200, height: 200, crop: :fill %>
+            <% elsif star.image_url.present? %>
               <%= image_tag star.image_url, width: 200, height: 200, crop: :fill %>
             <% else %>
               <%= image_tag "default_image.jpg", width: 200, height: 200, alt: "Image par défaut" %>
