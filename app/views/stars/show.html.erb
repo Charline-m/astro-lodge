@@ -2,7 +2,6 @@
   <div class="container">
     <div class="form-container">
       <div class="form-card">
-        <h1><i class="fas fa-rocket"></i>Détails de l'astre</h1>
 
         <div class="form-group text-center">
           <h2 class="fw-bold" style="color: #64ffda;" ><%= @star.name %></h2>
@@ -10,15 +9,15 @@
 
           <% if @star.photo.attached?%>
             <div class="d-flex justify-content-center mb-3">
-              <%= cl_image_tag @star.photo.key, width: 400, height: 300, crop: :fill, class: "adaptive-image" %>
+              <%= cl_image_tag @star.photo.key, crop: :fill, class: "adaptive-image" %>
             </div>
           <% elsif @star.image_url.present? %>
             <div class="d-flex justify-content-center mb-3">
-              <%= image_tag @star.image_url, width: 400, height: 300, crop: :fill, class: "adaptive-image" %>
+              <%= image_tag @star.image_url, crop: :fill, class: "adaptive-image" %>
             </div>
           <% else %>
             <div class="d-flex justify-content-center mb-3">
-              <%= image_tag "default_image.jpg", width: 400, height: 300, alt: "Image par défaut" %>
+              <%= image_tag "default_image.jpg", alt: "Image par défaut" %>
             </div>
           <% end %>
         </div>
@@ -41,10 +40,8 @@
 
 
 
-            <h1><i class="fas fa-rocket"></i>Reservez votre séjour</h1>
-            <p></p>
+            <h1><i class="fas fa-rocket"></i>Réservez votre séjour</h1>
             <%= form_with model: [@star, Reservation.new], local: true do |f| %>
-
             <div class="d-flex justify-content-center">
               <div class="form-group me-3 ">
                 <%= f.label :start_date, "Date de début", class: "text-center w-100" %>

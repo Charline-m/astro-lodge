@@ -1,7 +1,7 @@
 .show-page {
   .adaptive-image {
     width: 100%; /* Prend toute la largeur disponible */
-    max-width: 300px; /* Limite la taille maximale */
+    max-width: 20%; /* Limite la taille maximale */
     height: auto; /* Maintient les proportions */
     object-fit: contain; /* Gère le redimensionnement sans déformation */
     border-radius: 10px; /* Arrondir les bords si nécessaire */
