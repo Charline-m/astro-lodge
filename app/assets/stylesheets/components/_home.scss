@@ -95,7 +95,11 @@
  }
 
  body {
-  background: linear-gradient(135deg, $background-page-gradiant1, $background-page-gradiant2);
+  background: asset-url('background4.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   color: $police-color-body;
   font-family: 'Arial', sans-serif;
- }
+}
