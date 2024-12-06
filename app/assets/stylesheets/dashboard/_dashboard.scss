@@ -4,98 +4,115 @@
   padding: 20px;
 
   .user-profile {
-    width: 30%;
+    width: 30vw;
     text-align: center;
     background-color: #0c1b33;
     color: #fff;
     padding: 20px;
     border-radius: 10px;
+    display: flex; /* Flexbox pour centrer */
+    flex-direction: column; /* Aligne les enfants en colonne */
+    align-items: center; /* Centre horizontalement */
+    justify-content: center; /* Centre verticalement */
+    gap: 20px; /* Espace entre les éléments */
 
     .profile-picture {
       width: 100px;
       height: 100px;
       border-radius: 50%;
-      background-color: #0056b3;
-      margin: 0 auto 20px;
+      overflow: hidden; /* Assure que l'image reste dans le cadre rond */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* L'image couvre tout le cadre sans déformation */
+      }
     }
-
-    // .reservation-requests {
-
-    // }
-
   }
 
-  .dashboard-panels {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    flex: 1;
+  .reservation-requests {
+    width: 100%;
+  }
 
-    .user-properties,
-    .user-reservations {
-      background-color: #fff;
-      border-radius: 10px;
-      padding: 20px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
 
-      h3 {
-        color: #0c1b33;
-        margin-bottom: 10px;
-      }
+.dashboard-panels {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex: 1;
 
-      .cards-container {
-        display: flex; /* Alignement horizontal */
-        gap: 20px; /* Espace entre les cartes */
+  .user-properties,
+  .user-reservations {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    width: 65vw;
 
-        .card {
-          border:none;
-          border-radius: 8px;
-          padding: 10px;
-          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-          width: 150px;
+    h3 {
+      color: #0c1b33;
+      margin-bottom: 10px;
+    }
 
-          .card-image {
-            background-color: lightblue;
-            width: 130px;
-            height: 130px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 20px;
-            border-radius: 5px;
-          }
+    .cards-container {
+      display: flex; /* Alignement horizontal */
+      overflow-x: scroll;
+      gap: 20px; /* Espace entre les cartes */
+      padding-bottom: 1em;
 
-          h4 {
-            margin: 5px 0 5px;
-            color: #0c1b33;
-            font-size: medium;
-          }
+      .card {
+        border: none;
+        border-radius: 8px;
+        padding: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        width: 150px;
+        flex: 0 0 auto;
 
-          p {
-            color: #555;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            text-overflow:"...";
-            font-size: small;
-          }
+        .card-image {
+          background-color: lightblue;
+          width: 130px;
+          height: 130px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: white;
+          font-size: 20px;
+          border-radius: 5px;
+          object-fit: cover;
+        }
+
+        h4 {
+          margin: 5px 0 5px;
+          color: #0c1b33;
+          font-size: medium;
+        }
+
+        p {
+          color: #555;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          font-size: small;
         }
       }
     }
+  }
 
-    button {
-      margin-top: 10px;
-      background: linear-gradient(90deg, #0056b3, #003a80);
-      color: white;
-      padding: 8px 12px;
-      border: none;
-      border-radius: 5px;
-      transition: background 0.3s;
+  button {
+    margin-top: 10px;
+    background: linear-gradient(90deg, #0056b3, #003a80);
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    transition: background 0.3s;
 
-      &:hover {
-        background: linear-gradient(90deg, #003a80, #002652);
-      }
+    &:hover {
+      background: linear-gradient(90deg, #003a80, #002652);
     }
   }
 }

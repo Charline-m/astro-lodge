@@ -1,65 +1,66 @@
+<div class="container">
+  <div class="form-container">
+    <div class="form-card">
+      <h1><i class="fas fa-rocket"></i>Détails de l'astre</h1>
 
-<div class="form-container">
-  <div class="form-card">
-    <h1><i class="fas fa-rocket"></i>Détails de l'astre</h1>
+      <div class="form-group text-center">
+        <h2 class="fw-bold" style="color: #64ffda;" ><%= @star.name %></h2>
 
-    <div class="form-group text-center">
-      <h2 class="fw-bold" style="color: #64ffda;" ><%= @star.name %></h2>
-
-      <% if @star.image_url.present? %>
+        <% if @star.image_url.present? %>
+            <div class="d-flex justify-content-center mb-3">
+              <%= image_tag @star.image_url, width: 400, height: 300, crop: :fill, class: "rounded" %>
+              </div>
+          <% else %>
           <div class="d-flex justify-content-center mb-3">
-            <%= image_tag @star.image_url, width: 400, height: 300, crop: :fill, class: "rounded" %>
+            <%= image_tag "default_image.jpg", width: 400, height: 300, alt: "Image par défaut" %>
+          </div>
+          <% end %>
+      </div>
+
+  <p></p>
+      <div class="form-group text-center">
+        <h2 class="fw-bold" ><%= @star.category %>
+      </div>
+  <p></p>
+          <div class="form-group">
+          <p><%= @star.description %></p>
+          </div>
+  <p></p>
+          <div class="form-group">
+          <h4 class="fw-bold" ><%= @star.price %> € / nuit</h4>
+          </div>
+
+          <p></p>
+          <!-- unless @star.user==current_user -->
+
+          <h1><i class="fas fa-rocket"></i>Reservez votre séjour</h1>
+          <p></p>
+          <%= form_with model: [@star, Reservation.new], local: true do |f| %>
+
+            <div class="form-group">
+              <%= f.label :start_date, "Date de début", class: "text-center w-100" %>
+              <%= f.date_field :start_date, class: "form-control w-25 mx-auto" %>
             </div>
-        <% else %>
-        <div class="d-flex justify-content-center mb-3">
-          <%= image_tag "default_image.jpg", width: 400, height: 300, alt: "Image par défaut" %>
-        </div>
-        <% end %>
-    </div>
 
-<p></p>
-    <div class="form-group text-center">
-       <h2 class="fw-bold" ><%= @star.category %>
-    </div>
-<p></p>
-        <div class="form-group">
-        <p><%= @star.description %></p>
-        </div>
-<p></p>
-        <div class="form-group">
-        <h4 class="fw-bold" ><%= @star.price %> € / nuit</h4>
-        </div>
+            <div class="form-group">
+              <%= f.label :end_date, "Date de fin", class: "text-center w-100" %>
+              <%= f.date_field :end_date, class: "form-control w-25 mx-auto" %>
+            </div>
 
-        <p></p>
-        <!-- unless @star.user==current_user -->
+            <div class="form-group">
 
-        <h1><i class="fas fa-rocket"></i>Reservez votre séjour</h1>
-        <p></p>
-        <%= form_with model: [@star, Reservation.new], local: true do |f| %>
-
-          <div class="form-group">
-            <%= f.label :start_date, "Date de début", class: "text-center w-100" %>
-            <%= f.date_field :start_date, class: "form-control w-25 mx-auto" %>
-          </div>
-
-          <div class="form-group">
-            <%= f.label :end_date, "Date de fin", class: "text-center w-100" %>
-            <%= f.date_field :end_date, class: "form-control w-25 mx-auto" %>
-          </div>
-
-          <div class="form-group">
-
-            <%# <p>Total : <span id="total-price">0</span>€</p> %>
-          </div>
+              <%# <p>Total : <span id="total-price">0</span>€</p> %>
+            </div>
 
 
-          <div class="text-center">
-            <%= f.submit "Réserver", class: "btn-cosmic" %>
+            <div class="text-center">
+              <%= f.submit "Réserver", class: "btn-cosmic" %>
 
-            <%= link_to "Revenir aux astres", stars_path, class: "btn-cosmic" %>
-            <% end %>
-          </div>
+              <%= link_to "Revenir aux astres", stars_path, class: "btn-cosmic" %>
+              <% end %>
+            </div>
 
+      </div>
     </div>
   </div>
 </div>
