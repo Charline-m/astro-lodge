@@ -12,8 +12,8 @@ Star.destroy_all
 User.destroy_all
 
 users = [
-  User.create!(name: "bob", email: "user1@test.com", password: "123456"),
-  User.create!(name: "paul", email: "user2@test.com", password: "123456")
+  User.create!(name: "Bob", email: "user1@test.com", password: "123456"),
+  User.create!(name: "Paul", email: "user2@test.com", password: "123456")
 ]
 
 stars = [

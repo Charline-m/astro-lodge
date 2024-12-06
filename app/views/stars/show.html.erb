@@ -7,16 +7,42 @@
         <div class="form-group text-center">
           <h2 class="fw-bold" style="color: #64ffda;" ><%= @star.name %></h2>
 
-          <% if @star.image_url.present? %>
-              <div class="d-flex justify-content-center mb-3">
-                <%= image_tag @star.image_url, class: "adaptive-image" %>
-                </div>
-            <% else %>
+
+          <% if @star.photo.attached?%>
             <div class="d-flex justify-content-center mb-3">
-              <%= image_tag "default_image.jpg", class: "adaptive-image", alt: "Image par défaut" %>
+              <%= cl_image_tag @star.photo.key, width: 400, height: 300, crop: :fill, class: "adaptive-image" %>
             </div>
-            <% end %>
-        </div>
+          <% elsif @star.image_url.present? %>
+            <div class="d-flex justify-content-center mb-3">
+              <%= image_tag @star.image_url, width: 400, height: 300, crop: :fill, class: "adaptive-image" %>
+            </div>
+          <% else %>
+            <div class="d-flex justify-content-center mb-3">
+              <%= image_tag "default_image.jpg", width: 400, height: 300, alt: "Image par défaut" %>
+            </div>
+          <% end %>
+      </div>
+
+  <p></p>
+      <div class="form-group text-center">
+        <h2 class="fw-bold" ><%= @star.category %>
+      </div>
+  <p></p>
+          <div class="form-group">
+          <p><%= @star.description %></p>
+          </div>
+  <p></p>
+          <div class="form-group">
+          <h4 class="fw-bold" ><%= @star.price %> € / nuit</h4>
+          </div>
+
+          <p></p>
+          <!-- unless @star.user==current_user -->
+
+          <h1><i class="fas fa-rocket"></i>Reservez votre séjour</h1>
+          <p></p>
+          <%= form_with model: [@star, Reservation.new], local: true do |f| %>
+
 
     <p></p>
         <div class="form-group text-center">
