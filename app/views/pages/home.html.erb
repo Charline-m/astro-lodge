@@ -1,102 +1,53 @@
 <%= render "devise/shared/navbar" %>
- <div class="container">
-    <div class="logo-container">
-      <%= image_tag 'logo.png', alt: 'AstroLodge Logo', title: 'AstroLodge - Destination Cosmique' %>
-    </div>
-    <div class="row">
-      <div class="col-12 text-center cosmic-hero">
-        <h1 class="display-4 mb-4">
-          <i class="fas fa-rocket me-3"></i>Louez Votre Destination Cosmique
-        </h1>
-        <h2 class="mb-5 fst-italic">
-          <i class="fas fa-star me-2"></i>Transformez Votre Bien-être Grâce aux Énergies Célestes
-        </h2>
+<div class="container cosmic-container">
+  <div class="logo-container">
+    <%= image_tag 'logo.png', alt: 'AstroLodge Logo', title: 'AstroLodge - Destination Cosmique' %>
+  </div>
 
-        <p class="lead mb-5">
-          Découvrez des destinations cosmiques extraordinaires qui réécrivent les limites du bien-être personnel.
-          Chaque astre raconte une histoire, chaque location est une transformation.
-        </p>
+  <div class="hero-card">
+    <h1>
+      <i class="fas fa-rocket me-2"></i>
+      Louez Votre Astre Thérapeutique
+    </h1>
+    <h2>
+      <i class="fas fa-star me-2"></i>
+      Une Nuit Sous Les Étoiles, Une Vie Transformée
+    </h2>
+    <%= link_to stars_path, class: 'btn btn-cosmic' do %>
+      <i class="fas fa-space-shuttle me-2"></i>RÉSERVER MA NUIT COSMIQUE
+    <% end %>
+  </div>
 
-        <%= link_to stars_path, class: 'btn btn-cosmic btn-lg' do %>
-          <i class="fas fa-space-shuttle me-2"></i>COMMENCER MON VOYAGE COSMIQUE
-        <% end %>
-      </div>
-    </div>
-
-    <div class="row mt-5">
-      <div class="col-12">
-        <h3 class="text-center mb-4">
-          <i class="fas fa-globe-americas me-2"></i>Types d'Astres Disponibles
-        </h3>
-      </div>
-
-      <% astres = [
-        {nom: 'Planètes réparatrices', icone: 'fa-globe', description: 'Fréquences énergétiques régénératrices'},
-        {nom: 'Étoiles amplificatrices', icone: 'fa-star', description: 'Potentiel et développement personnel'},
-        {nom: 'Astéroïdes méditatifs', icone: 'fa-meteor', description: 'Concentration et introspection'},
-        {nom: 'Trous noirs régénérateurs', icone: 'fa-circle', description: 'Transformation profonde'},
-        {nom: 'Nébuleuses curatives', icone: 'fa-cloud', description: 'Harmonisation émotionnelle'}
-      ] %>
-
-      <% astres.each do |astre| %>
-        <div class="col-md-4 mb-4">
-          <div class="card cosmic-card">
-            <div class="card-body text-center">
-              <i class="fas <%= astre[:icone] %> fa-3x mb-3 text-info"></i>
-              <h5 class="card-title"><%= astre[:nom] %></h5>
-              <p class="card-text"><%= astre[:description] %></p>
-            </div>
-          </div>
-        </div>
-      <% end %>
+  <div class="benefits-cards">
+    <div class="benefit-card">
+      <i class="fas fa-globe text-info"></i>
+      <h3>Planètes</h3>
+      <p>Harmonisez vos émotions en une nuit</p>
     </div>
 
-    <div class="row mt-5">
-      <div class="col-12 text-center">
-        <div class="card cosmic-card p-4">
-          <blockquote class="blockquote">
-            <p class="fst-italic">
-              <i class="fas fa-quote-left me-2"></i>
-              Après ma location d'une semaine près de la nébuleuse d'Orion, j'ai retrouvé une créativité et une énergie que je croyais perdues depuis des années.
-            </p>
-            <footer class="blockquote-footer text-info">Marie, 42 ans, Designer</footer>
-          </blockquote>
-        </div>
-      </div>
+    <div class="benefit-card">
+      <i class="fas fa-star text-info"></i>
+      <h3>Étoiles</h3>
+      <p>Révélez votre potentiel intérieur</p>
     </div>
 
-    <div class="row mt-5 mb-5">
-      <div class="col-12 text-center">
-        <h3 class="mb-4">
-          <i class="fas fa-shield-alt me-2"></i>Nos Garanties
-        </h3>
-        <div class="row">
-          <div class="col-md-3 mb-3">
-            <div class="cosmic-card p-3 h-100">
-              <i class="fas fa-headset text-info mb-2"></i>
-              <h5>Support 24/7</h5>
-            </div>
-          </div>
-          <div class="col-md-3 mb-3">
-            <div class="cosmic-card p-3 h-100">
-              <i class="fas fa-lock text-info mb-2"></i>
-              <h5>Sécurité Absolue</h5>
-            </div>
-          </div>
-          <div class="col-md-3 mb-3">
-            <div class="cosmic-card p-3 h-100">
-              <i class="fas fa-undo text-info mb-2"></i>
-              <h5>Remboursement Garanti</h5>
-            </div>
-          </div>
-          <div class="col-md-3 mb-3">
-            <div class="cosmic-card p-3 h-100">
-              <i class="fas fa-user-friends text-info mb-2"></i>
-              <h5>Accompagnement Personnalisé</h5>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div class="benefit-card">
+      <i class="fas fa-meteor text-info"></i>
+      <h3>Comètes</h3>
+      <p>Boostez votre énergie vitale</p>
+    </div>
+
+    <div class="benefit-card">
+      <i class="fas fa-moon text-info"></i>
+      <h3>Satellites</h3>
+      <p>Développez votre sixième sens</p>
+    </div>
+
+    <div class="benefit-card">
+      <i class="fas fa-circle text-info"></i>
+      <h3>Trous Noirs</h3>
+      <p>Renaissez à vous-même en 24h</p>
     </div>
   </div>
-  <%= render "devise/shared/footer" %>
+</div>
+<%= render "devise/shared/footer" %>

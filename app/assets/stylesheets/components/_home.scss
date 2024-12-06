@@ -1,39 +1,101 @@
-body {
-  background: linear-gradient(135deg, $background-page-gradiant1, $background-page-gradiant2);
-  color: $police-color-body;
-  font-family: 'Arial', sans-serif;
-}
-.logo-container {
+.cosmic-container {
+  padding-bottom: 1.5rem;
   display: flex;
-  justify-content: center;
-}
-.logo-container img {
-  max-width: 300px;
-  width: 100%;
-  height: auto;
-}
-.cosmic-hero {
-  background: rgba(10, 25, 47, 0.7);
-  border-radius: 15px;
-  padding: 3rem;
-  margin-top: 2rem;
-}
-.cosmic-card {
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+ }
+
+ .logo-container {
+  img {
+    height: 140px;
+    width: auto;
+  }
+ }
+
+ .hero-card {
+  width: 80%;
   background: $background-cosmic-card;
   border: 1px solid $border-cosmic-card;
+  border-radius: 15px;
+  padding: 2rem;
+  text-align: center;
   color: $police-color-card;
+
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: $info;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    opacity: 0.9;
+  }
+ }
+
+ .benefits-cards {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  width: 100%;
+ }
+
+ .benefit-card {
+  flex: 0 0 180px;
+  background: $background-cosmic-card;
+  border: 1px solid $border-cosmic-card;
+  border-radius: 15px;
+  padding: 1.5rem;
+  text-align: center;
   transition: transform 0.3s ease;
-}
-.cosmic-card:hover {
-  transform: scale(1.05);
-}
-.btn-cosmic {
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+
+  i {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: $police-color-card;
+  }
+
+  p {
+    font-size: 0.9rem;
+    color: $info;
+    margin: 0;
+  }
+ }
+
+ .btn-cosmic {
   background-color: $background-cosmic-btn;
   color: $background-page-gradiant1;
   border: none;
+  padding: 0.5rem 1.5rem;
+  font-size: 1rem;
   transition: all 0.3s ease;
-}
-.btn-cosmic:hover {
-  background-color: $background-color-btn-over;
-  color: $background-cosmic-btn;
-}
+  display: inline-flex;
+  align-items: center;
+
+  &:hover {
+    background-color: $background-color-btn-over;
+    color: $background-cosmic-btn;
+    transform: scale(1.05);
+  }
+
+  i {
+    margin-right: 0.5rem;
+  }
+ }
+
+ body {
+  background: linear-gradient(135deg, $background-page-gradiant1, $background-page-gradiant2);
+  color: $police-color-body;
+  font-family: 'Arial', sans-serif;
+ }
