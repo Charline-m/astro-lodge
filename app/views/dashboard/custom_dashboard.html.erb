@@ -42,9 +42,11 @@
         <% current_user.stars.each do |star| %>
           <div class="card">
             <!-- Remplacer l'image par un fond bleu avec le texte "Image" -->
-            <div class="card-image">
-              Image
-            </div>
+            <% if star.photo.attached? %>
+              <%= cl_image_tag star.photo.key, class: "card-image" %>
+            <% else %>
+              <%= image_tag "default_image.jpg", alt: "Image par défaut", class: "card-image" %>
+            <% end %>
             <h4><%= star.name %></h4>
             <p><%= star.description %></p>
           </div>
